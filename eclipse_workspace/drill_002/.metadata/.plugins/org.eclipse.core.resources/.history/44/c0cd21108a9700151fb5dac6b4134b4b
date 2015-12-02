@@ -1,0 +1,10 @@
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+	name="prox_test" transports="https,http" statistics="disable" trace="disable"
+	startOnLoad="true">
+	<target endpoint="gov:esbconfig/endpoints/EDCIntegraRegRes/ep_mocktaskapi_xmlpost.xml">
+		<outSequence>
+			<send />
+		</outSequence>
+		
+	</target>
+</proxy>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="seq_log_in" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+  <log description="customlog_001" level="custom" separator="&lt;|------------|>">
+    <property expression="get-property('to')" name="LOG_CUSTOM_MSG[00]"/>
+  </log>
+  <log category="DEBUG" description="detailedlog" level="full"/>
+</sequence>

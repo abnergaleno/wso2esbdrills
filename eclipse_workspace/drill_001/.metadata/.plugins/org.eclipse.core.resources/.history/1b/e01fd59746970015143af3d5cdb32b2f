@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="prox_esbdrill001" startOnLoad="true" trace="disable"
+  transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+  <target>
+    <inSequence>
+      <log category="TRACE" description="justAnotherLOgINFO"
+        level="full" separator="&lt;|-------------|>">
+        <property name="LOG_MESSAGE[001]" value="category: trace; log level: full;"/>
+      </log>
+      <log category="TRACE" description="justanotherlogTRACEHEADERS" level="headers"/>
+    </inSequence>
+    <outSequence>
+      <payloadFactory description="simplePayloadForsimulatedResponse" media-type="xml">
+        <format>
+          <inline xmlns=""/>
+        </format>
+        <args/>
+      </payloadFactory>
+      <send/>
+    </outSequence>
+    <faultSequence/>
+  </target>
+</proxy>

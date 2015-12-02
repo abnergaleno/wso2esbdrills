@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="prox_esbdrill001" startOnLoad="true" trace="disable"
+  transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+  <target>
+    <inSequence>
+      <log description="justAnotherLOgINFO" level="custom" separator="&lt;|-------------|>">
+        <property name="LOG_MESSAGE[001]" value="category INFO log level CUSTOM"/>
+      </log>
+      <send>
+        <endpoint key="ep_mocktaskapi_xmlget"/>
+      </send>
+    </inSequence>
+    <outSequence>
+      <enrich description="towrapresponseinsoapenveoper">
+        <source xpath="/default/xpath"/>
+        <target xpath="/default/xpath"/>
+      </enrich>
+      <send/>
+    </outSequence>
+    <faultSequence/>
+  </target>
+</proxy>

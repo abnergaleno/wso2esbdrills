@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><resource isCollection="false" md5="d5debb7a33662cf18b1030d9575665f9" name="seq_log_in.xml" path="/_system/governance/esbconfig/sequences/IntegraEdcRegRes/seq_log_in.xml" registryUrl="https://localhost:9443/registry">
+    <mediaType>application/vnd.wso2.sequence</mediaType>
+<creator>admin</creator><lastUpdater>admin</lastUpdater><description/><uuid/><registryState>2</registryState></resource>

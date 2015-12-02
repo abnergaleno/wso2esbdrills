@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="ep_localhost8080" groupId="com.example.IntegraEdcCar.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/ep_localhost8080.xml</file>
+    </artifact>
+    <artifact name="le_nsIntegraEdc" groupId="com.example.IntegraEdcCar.local-entry" version="1.0.0" type="synapse/local-entry" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/local-entries/le_nsIntegraEdc.xml</file>
+    </artifact>
+    <artifact name="prox_drill001" groupId="com.example.IntegraEdcCar.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/prox_drill001.xml</file>
+    </artifact>
+</artifacts>

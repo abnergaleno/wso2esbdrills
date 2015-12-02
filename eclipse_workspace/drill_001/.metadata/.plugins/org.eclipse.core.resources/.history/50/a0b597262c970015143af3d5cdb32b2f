@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="prox_drill001" startOnLoad="true" trace="disable"
+  transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+  <target>
+    <inSequence>
+      <sequence description="" key="gov:esbconfig/sequences/IntegraEdcRegRes/seq_log_in.xml"/>
+    </inSequence>
+    <outSequence>
+      <drop description="nothingtoreturn"/>
+    </outSequence>
+    <faultSequence/>
+  </target>
+</proxy>

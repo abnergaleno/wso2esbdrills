@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="prox_wsdltorest" startOnLoad="true" trace="disable"
+  transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+  <target>
+    <inSequence/>
+    <outSequence/>
+    <faultSequence/>
+  </target>
+  <publishWSDL key="gov:wsdl/integratasks.wsdl"/>
+</proxy>

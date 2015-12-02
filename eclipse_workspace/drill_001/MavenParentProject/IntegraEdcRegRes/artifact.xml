@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="seq_log_in" groupId="com.example.IntegraEdcRegRes.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+        <item>
+            <file>seq_log_in.xml</file>
+            <path>/_system/governance/esbconfig/sequences</path>
+            <mediaType>application/vnd.wso2.sequence</mediaType>
+        </item>
+    </artifact>
+</artifacts>

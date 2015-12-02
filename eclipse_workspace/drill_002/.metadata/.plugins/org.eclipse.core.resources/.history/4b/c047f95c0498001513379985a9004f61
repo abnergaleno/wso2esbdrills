@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="prox_wsdltorest" serviceGroup="" startOnLoad="true"
+  trace="disable" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+  <target>
+    <inSequence>
+      <log description="logthesoapacton"/>
+      <switch source="/default/xpath">
+        <case regex=".*getTask"/>
+        <default>
+          <call description="call the endpoint described inregistry">
+            <endpoint key="gov:esbconfig/endpoints/EDCIntegraRegRes/ep_mocktaskapi_xmlpost.xml"/>
+          </call>
+        </default>
+      </switch>
+    </inSequence>
+    <outSequence>
+      <send/>
+    </outSequence>
+    <faultSequence/>
+  </target>
+  <publishWSDL key="gov:wsdl/integratasks.wsdl"/>
+</proxy>

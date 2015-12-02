@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="seq_log_in" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+  <log description="basic"/>
+  <log description="detailedlog"/>
+</sequence>

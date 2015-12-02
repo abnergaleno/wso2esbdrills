@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="prox_drill001" startOnLoad="true" trace="disable"
+  transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+  <target>
+    <inSequence>
+      <sequence key="Sequence"/>
+    </inSequence>
+    <outSequence>
+      <drop description="nothingtoreturn"/>
+    </outSequence>
+    <faultSequence/>
+  </target>
+</proxy>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="ep_mocktaskapi_xmlpost" groupId="ph.com.energy.integra.EDCIntegraRegRes.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+        <item>
+            <file>ep_mocktaskapi_xmlpost.xml</file>
+            <path>/_system/governance/esbconfig/endpoints</path>
+            <mediaType>application/vnd.wso2.esb.endpoint</mediaType>
+        </item>
+    </artifact>
+    <artifact name="integratasks" groupId="ph.com.energy.integra.EDCIntegraRegRes.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+        <item>
+            <file>integratasks.wsdl</file>
+            <path>/_system/governance/wsdl</path>
+            <mediaType/>
+        </item>
+    </artifact>
+</artifacts>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><resource isCollection="false" md5="bfce49dd08ab0bb973c5d33ad4cea29f" name="ep_mocktaskapi_xmlpost.xml" path="/_system/governance/esbconfig/endpoints/EDCIntegraRegRes/ep_mocktaskapi_xmlpost.xml" registryUrl="https://localhost:9443/registry">
+    <mediaType>application/vnd.wso2.esb.endpoint</mediaType>
+<creator>admin</creator><lastUpdater>admin</lastUpdater><description/><uuid/><registryState>2</registryState></resource>

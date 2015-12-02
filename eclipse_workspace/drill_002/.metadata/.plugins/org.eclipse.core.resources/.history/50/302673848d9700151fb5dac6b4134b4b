@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:edcin="http://www.energy.com.ph/integra" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="edcintegratasks" targetNamespace="http://www.energy.com.ph/integra" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/">
+    <wsdl:types><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.energy.com.ph/integra">
+	<xsd:element name="getTasks">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="in" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getTasksResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="out" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element></xsd:schema></wsdl:types>
+    <wsdl:message name="getTasksRequest">
+    	<wsdl:part name="parameters" element="edcin:getTasks"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getTasksResponse">
+    	<wsdl:part name="parameters" element="edcin:getTasksResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="TaskPortType">
+    	<wsdl:operation name="getTasks">
+    		<wsdl:input message="edcin:getTasksRequest"></wsdl:input>
+    		<wsdl:output message="edcin:getTasksResponse"></wsdl:output>
+    	</wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="TaskHttpBinding" type="edcin:TaskPortType"></wsdl:binding>
+    <wsdl:service name="TaskService">
+		<wsdl:port name="TaskServicePort" binding="edcin:TaskHttpBinding">
+            <soap:address location="http://www.energy.com.ph/integra/services"/>
+        </wsdl:port>
+	</wsdl:service></wsdl:definitions>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="prox_wsdltorest" serviceGroup="" startOnLoad="true"
+  trace="disable" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+  <target>
+    <inSequence>
+      <switch source="/default/xpath">
+        <case regex=".*+">
+          <payloadFactory description="dummypayload" media-type="xml">
+            <format>
+              <inline xmlns=""/>
+            </format>
+            <args/>
+          </payloadFactory>
+        </case>
+        <default>
+          <log description="logActionNotfound" level="custom" separator="============">
+            <property name="LOG_MESSAGE[01]-on-SWITCH-DEFAULT" value="No matching action in Switch... will set dummy payload"/>
+          </log>
+        </default>
+      </switch>
+    </inSequence>
+    <outSequence/>
+    <faultSequence/>
+  </target>
+  <publishWSDL key="gov:wsdl/integratasks.wsdl"/>
+</proxy>

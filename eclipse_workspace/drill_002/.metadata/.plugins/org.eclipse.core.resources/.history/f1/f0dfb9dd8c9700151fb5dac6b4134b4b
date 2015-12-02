@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:edcin="http://www.energy.com.ph/integra" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="edcintegratasks" targetNamespace="http://www.energy.com.ph/integra" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/">
+    <wsdl:binding name="TaskHttpBinding"></wsdl:binding>
+    <wsdl:service name="TaskService">
+		<wsdl:port name="TaskServicePort" binding="edcin:TaskHttpBinding">
+            <soap:address location="http://www.energy.com.ph/integra"/>
+        </wsdl:port>
+	</wsdl:service></wsdl:definitions>

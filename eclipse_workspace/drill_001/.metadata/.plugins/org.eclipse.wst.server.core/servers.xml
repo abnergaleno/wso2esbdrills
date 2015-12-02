@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<servers>
+  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat v7.0 Server at localhost-config" deployDir="wtpwebapps" hostname="localhost" id="Tomcat v7.0 Server at localhost" name="Tomcat v7.0 Server at localhost" runtime-id="Apache Tomcat v7.0" server-type="org.eclipse.jst.server.tomcat.70" server-type-id="org.eclipse.jst.server.tomcat.70" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="1">
+    <list key="modules" value0="mock-task-api::org.eclipse.jst.jee.server:mock-task-api::jst.web::3.0"/>
+  </server>
+  <server hostname="localhost" id="WSO2 Carbon 4.4 based server at localhost" name="WSO2 Carbon 4.4 based server at localhost" runtime-id="WSO2 Carbon 4.4 based server" server-type="org.wso2.developerstudio.eclipse.carbon.server44" server-type-id="org.wso2.developerstudio.eclipse.carbon.server44" start-timeout="600" stop-timeout="15" timestamp="1">
+    <map carbon.browser="true" carbon.debug="5001" carbon.hotupdate="true" carbon.http="9763" carbon.https="9443" carbon.offset="0" key="generic_server_instance_properties" osgi.console="false" synapse.transport.http="8280" synapse.transport.https="8243"/>
+    <list key="Generic_Server_Modules_List" value0="org.wso2.developerstudio.eclipse.carbon.moduleFactory:IntegraEdcCar"/>
+    <list key="modules" value0="IntegraEdcCar::org.wso2.developerstudio.eclipse.carbon.moduleFactory:IntegraEdcCar::org.wso2.developerstudio.eclipse.carbon.module::1.0"/>
+  </server>
+</servers>

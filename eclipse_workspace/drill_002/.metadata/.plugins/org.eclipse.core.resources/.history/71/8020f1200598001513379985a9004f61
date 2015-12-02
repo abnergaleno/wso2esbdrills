@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="prox_wsdltorest" serviceGroup="" startOnLoad="true"
+  trace="disable" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+  <target>
+    <inSequence>
+      <log description="logthesoapacton" level="full" separator="=======">
+        <property expression="get-property('Action')" name="LOG_MESSAGE_on_entryToProxyBeforeSwitch__get-property('Action')"/>
+      </log>
+      <switch source="/default/xpath">
+        <case regex=".*getTask">
+          <call description="call the endpoint described inregistry">
+            <endpoint key="gov:esbconfig/endpoints/EDCIntegraRegRes/ep_mocktaskapi_xmlpost.xml"/>
+          </call>
+        </case>
+        <default>
+          <log description="logEntryToSwitchCase" level="custom" separator="=========">
+            <property name="LOG_MESSAGE_on_SWITCHdefault" value="SoapActionNotInSwitch,This is the log for default case"/>
+          </log>
+          <payloadFactory description="setpayload" media-type="xml">
+            <format>
+              <inline xmlns=""/>
+            </format>
+            <args/>
+          </payloadFactory>
+          <loopback description="sendthepayloadbacktoclientuser"/>
+        </default>
+      </switch>
+    </inSequence>
+    <outSequence>
+      <send/>
+    </outSequence>
+    <faultSequence/>
+  </target>
+  <publishWSDL key="gov:wsdl/integratasks.wsdl"/>
+</proxy>
