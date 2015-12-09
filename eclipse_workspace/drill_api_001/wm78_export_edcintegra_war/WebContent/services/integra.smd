@@ -1,0 +1,5 @@
+{
+	"serviceType": "JSON-RPC",
+	"methods": [],
+	"serviceURL": "integra.json"
+}

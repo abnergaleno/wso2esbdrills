@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modules>
+  <module moduleId="org.eclipse.jst.jee.server:wm78_export_edcintegra_war" serverId="Tomcat v7.0 Server at localhost"/>
+  <module moduleId="org.wso2.developerstudio.eclipse.carbon.moduleFactory:EdcIntegraEsbCar" serverId="WSO2 Carbon 4.4 based server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:integra-tasks" serverId="Tomcat v7.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:mock-task-api" serverId="Tomcat v7.0 Server at localhost"/>
+</modules>

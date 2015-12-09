@@ -1,0 +1,630 @@
+{
+	"goToPage-Main": {
+		"name": "goToPage-Main",
+		"owner": "App",
+		"operation": "gotoPage",
+		"pageName": "Main",
+		"dataBinding": {},
+		"category": "wm.NavigationVariable",
+		"_id": "wm-goToPage-Main-wm.NavigationVariable1389180517517"
+	},
+	"supportedLocale": {
+		"name": "supportedLocale",
+		"type": "string",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"en": "English"
+		},
+		"dataBinding": [
+			{
+				"name": "dataSet",
+				"type": "object",
+				"fields": [
+					{
+						"name": "dataValue",
+						"type": "string"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"category": "wm.Variable",
+		"_id": "wm-supportedLocale-wm.Variable1402640443182"
+	},
+	"IntegraGregTaskData": {
+		"name": "IntegraGregTaskData",
+		"type": "GregTask",
+		"isList": true,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": []
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"operation": "read",
+		"startUpdate": true,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"liveSource": "integra",
+		"ignoreCase": false,
+		"matchMode": "start",
+		"category": "wm.LiveVariable",
+		"isDefault": true,
+		"dbSystem": "PostgreSQL",
+		"_id": "wm-IntegraGregTaskData-wm.LiveVariable-1449384209822",
+		"package": "com.edcintegra.integra.GregTask",
+		"tableName": "greg_task",
+		"tableType": "TABLE",
+		"properties": [
+			"gregUser"
+		],
+		"relatedTables": [
+			{
+				"columnName": "gregUser",
+				"relationName": "gregUser",
+				"type": "GregUser",
+				"package": "com.edcintegra.integra.GregTask",
+				"watchOn": "IntegraGregUserData"
+			}
+		],
+		"propertiesMap": {
+			"columns": [
+				{
+					"fieldName": "taskId",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "task_id",
+					"isPrimaryKey": true,
+					"notNull": true,
+					"length": 255,
+					"precision": 19,
+					"generator": "identity",
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "name",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "name",
+					"isPrimaryKey": false,
+					"notNull": true,
+					"length": 30,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "description",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "description",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 100,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "startDate",
+					"type": "date",
+					"hibernateType": "date",
+					"fullyQualifiedType": "date",
+					"columnName": "start_date",
+					"isPrimaryKey": false,
+					"notNull": true,
+					"length": 13,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "endDate",
+					"type": "date",
+					"hibernateType": "date",
+					"fullyQualifiedType": "date",
+					"columnName": "end_date",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 13,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "status",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "status",
+					"isPrimaryKey": false,
+					"notNull": true,
+					"length": 10,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "gregUser",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "created_by",
+					"isPrimaryKey": false,
+					"notNull": true,
+					"length": 255,
+					"precision": 19,
+					"generator": null,
+					"isRelated": true,
+					"defaultValue": null,
+					"relatedTableName": "greg_user",
+					"relatedEntityName": "GregUser",
+					"columns": [
+						{
+							"fieldName": "userId",
+							"type": "integer",
+							"hibernateType": "integer",
+							"fullyQualifiedType": "integer",
+							"columnName": "user_id",
+							"isPrimaryKey": true,
+							"notNull": true,
+							"length": 255,
+							"precision": 19,
+							"generator": "identity",
+							"isRelated": false,
+							"defaultValue": null,
+							"isRelatedPk": "true"
+						},
+						{
+							"fieldName": "customerCode",
+							"type": "string",
+							"hibernateType": "string",
+							"fullyQualifiedType": "string",
+							"columnName": "customer_code",
+							"isPrimaryKey": false,
+							"notNull": false,
+							"length": 10,
+							"precision": 19,
+							"generator": null,
+							"isRelated": false,
+							"defaultValue": null,
+							"disableInlineEditing": "true"
+						},
+						{
+							"fieldName": "emailAddress",
+							"type": "string",
+							"hibernateType": "string",
+							"fullyQualifiedType": "string",
+							"columnName": "email_address",
+							"isPrimaryKey": false,
+							"notNull": true,
+							"length": 30,
+							"precision": 19,
+							"generator": null,
+							"isRelated": false,
+							"defaultValue": null,
+							"disableInlineEditing": "true"
+						},
+						{
+							"fieldName": "name",
+							"type": "string",
+							"hibernateType": "string",
+							"fullyQualifiedType": "string",
+							"columnName": "name",
+							"isPrimaryKey": false,
+							"notNull": true,
+							"length": 60,
+							"precision": 19,
+							"generator": null,
+							"isRelated": false,
+							"defaultValue": null,
+							"disableInlineEditing": "true"
+						},
+						{
+							"fieldName": "mobilePassword",
+							"type": "string",
+							"hibernateType": "string",
+							"fullyQualifiedType": "string",
+							"columnName": "mobile_password",
+							"isPrimaryKey": false,
+							"notNull": false,
+							"length": 30,
+							"precision": 19,
+							"generator": null,
+							"isRelated": false,
+							"defaultValue": null,
+							"disableInlineEditing": "true"
+						}
+					],
+					"relatedFieldName": "gregUser.userId",
+					"isList": false,
+					"disableInlineEditing": "true"
+				},
+				{
+					"fieldName": "projectId",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "project_id",
+					"isPrimaryKey": false,
+					"notNull": true,
+					"length": 255,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "taskTypeId",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "task_type_id",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "parentTaskId",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "parent_task_id",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "referenceTicket",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "reference_ticket",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 30,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "lastUpdateDatetime",
+					"type": "timestamp",
+					"hibernateType": "timestamp",
+					"fullyQualifiedType": "timestamp",
+					"columnName": "last_update_datetime",
+					"isPrimaryKey": false,
+					"notNull": true,
+					"length": 35,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "lastUpdateBy",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "last_update_by",
+					"isPrimaryKey": false,
+					"notNull": true,
+					"length": 255,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				}
+			],
+			"primaryKeys": [
+				"taskId"
+			],
+			"entityName": "GregTask",
+			"fullyQualifiedName": "com.edcintegra.integra.GregTask",
+			"tableType": "TABLE"
+		},
+		"bindCount": 2
+	},
+	"IntegraGregUserData": {
+		"name": "IntegraGregUserData",
+		"type": "GregUser",
+		"isList": true,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "greg_user",
+				"fields": [
+					{
+						"name": "userId",
+						"type": "number"
+					},
+					{
+						"name": "customerCode",
+						"type": "string"
+					},
+					{
+						"name": "emailAddress",
+						"type": "string"
+					},
+					{
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"name": "mobilePassword",
+						"type": "string"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"operation": "read",
+		"startUpdate": true,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"liveSource": "integra",
+		"ignoreCase": false,
+		"matchMode": "start",
+		"category": "wm.LiveVariable",
+		"isDefault": true,
+		"dbSystem": "PostgreSQL",
+		"_id": "wm-IntegraGregUserData-wm.LiveVariable-1449384209831",
+		"package": "com.edcintegra.integra.GregUser",
+		"tableName": "greg_user",
+		"tableType": "TABLE",
+		"propertiesMap": {
+			"columns": [
+				{
+					"fieldName": "userId",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "user_id",
+					"isPrimaryKey": true,
+					"notNull": true,
+					"length": 255,
+					"precision": 19,
+					"generator": "identity",
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "customerCode",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "customer_code",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 10,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "emailAddress",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "email_address",
+					"isPrimaryKey": false,
+					"notNull": true,
+					"length": 30,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "name",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "name",
+					"isPrimaryKey": false,
+					"notNull": true,
+					"length": 60,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "mobilePassword",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "mobile_password",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 30,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				}
+			],
+			"primaryKeys": [
+				"userId"
+			],
+			"entityName": "GregUser",
+			"fullyQualifiedName": "com.edcintegra.integra.GregUser",
+			"tableType": "TABLE"
+		},
+		"bindCount": 1,
+		"filterFields": {}
+	},
+	"livevar_looup_greg_user": {
+		"type": "GregUser",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "greg_user",
+				"fields": [
+					{
+						"name": "userId",
+						"type": "number"
+					},
+					{
+						"name": "customerCode",
+						"type": "string"
+					},
+					{
+						"name": "emailAddress",
+						"type": "string"
+					},
+					{
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"name": "mobilePassword",
+						"type": "string"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"operation": "read",
+		"startUpdate": true,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"liveSource": "integra",
+		"ignoreCase": false,
+		"matchMode": "start",
+		"filterFields": {},
+		"category": "wm.LiveVariable",
+		"_id": "wm-livevar_looup_greg_user-wm.LiveVariable-1449390632264",
+		"package": "com.edcintegra.integra.GregUser",
+		"tableName": "greg_user",
+		"tableType": "TABLE",
+		"propertiesMap": {
+			"columns": [
+				{
+					"fieldName": "userId",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "user_id",
+					"isPrimaryKey": true,
+					"notNull": true,
+					"length": 255,
+					"precision": 19,
+					"generator": "identity",
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "customerCode",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "customer_code",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 10,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "emailAddress",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "email_address",
+					"isPrimaryKey": false,
+					"notNull": true,
+					"length": 30,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "name",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "name",
+					"isPrimaryKey": false,
+					"notNull": true,
+					"length": 60,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "mobilePassword",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "mobile_password",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 30,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				}
+			],
+			"primaryKeys": [
+				"userId"
+			],
+			"entityName": "GregUser",
+			"fullyQualifiedName": "com.edcintegra.integra.GregUser",
+			"tableType": "TABLE"
+		},
+		"bindCount": 1
+	}
+}

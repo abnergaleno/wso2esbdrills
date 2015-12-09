@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/waveintegra" name="api_integrawave" xmlns="http://ws.apache.org/ns/synapse">
+  <resource methods="GET" protocol="http">
+    <inSequence>
+      <send/>
+    </inSequence>
+    <outSequence>
+      <switch source="query.param.format">
+        <case regex="json"/>
+        <case regex="xml">
+          <property description="set response format=XML"
+            name="messageType" scope="default" type="STRING" value="application/xml"/>
+        </case>
+        <default/>
+      </switch>
+      <send/>
+    </outSequence>
+    <faultSequence/>
+  </resource>
+</api>

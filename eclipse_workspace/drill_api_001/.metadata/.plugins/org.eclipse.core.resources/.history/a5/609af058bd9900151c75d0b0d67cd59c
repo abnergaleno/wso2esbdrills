@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="ep_localhost8080_mocktaskapi_xmlget" groupId="ph.com.energy.integra.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+        <item>
+            <file>ep_localhost8080_mocktaskapi_xmlget.xml</file>
+            <path>/_system/governance/esbconfig/endpoints</path>
+            <mediaType>application/vnd.wso2.esb.endpoint</mediaType>
+        </item>
+    </artifact>
+</artifacts>

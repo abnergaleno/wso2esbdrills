@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/integra" name="api_resttorest" xmlns="http://ws.apache.org/ns/synapse">
+  <resource methods="GET" protocol="http" url-mapping="/tasks">
+    <inSequence>
+      <send description="" receive="/default/sequence"/>
+    </inSequence>
+    <outSequence/>
+    <faultSequence/>
+  </resource>
+  <resource protocol="http" url-mapping="/misc">
+    <inSequence>
+      <send/>
+    </inSequence>
+    <outSequence/>
+    <faultSequence/>
+  </resource>
+</api>

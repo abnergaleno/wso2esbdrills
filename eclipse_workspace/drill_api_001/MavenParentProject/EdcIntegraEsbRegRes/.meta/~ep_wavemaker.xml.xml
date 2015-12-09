@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><resource isCollection="false" md5="31028bc9c8be894465d250ef5eb95363" name="ep_wavemaker.xml" path="/_system/governance/esbconfig/endpoints/EdcIntegraEsbRegRes/EdcIntegraEsbRegRes/ep_wavemaker.xml" registryUrl="https://localhost:9443/registry">
+    <mediaType>application/vnd.wso2.esb.endpoint</mediaType>
+<creator>admin</creator><lastUpdater>admin</lastUpdater><description/><uuid/><registryState>2</registryState></resource>

@@ -1,0 +1,108 @@
+<wm-page data-ng-controller="MainPageController" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content1">
+        <wm-page-content columnwidth="12" name="page_content1">
+            <wm-livegrid name="GregTaskLivegrid2" service="integra@GregTask">
+                <wm-grid deleterow="true" updaterow="true" insertrow="true" gridfirstrowselect="true" readonlygrid="false" name="GregTaskGrid2" dataset="bind:Variables.IntegraGregTaskData.dataSet">
+                    <wm-grid-column binding="taskId" caption="Task Id" type="integer" primary-key="true" generator="identity" readonly="true" col-class="" col-ng-class="" search-placeholder="Search" is-related-pk="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                    <wm-grid-column binding="name" caption="Name" type="string" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" is-related-pk="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                    <wm-grid-column binding="description" caption="Description" type="string" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" is-related-pk="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                    <wm-grid-column binding="startDate" caption="Start Date" type="date" readonly="false" col-class="" col-ng-class="" search-placeholder="Enter date in yyyy-mm-dd" datepattern="yyyy-MM-dd" formatpattern="toDate" is-related-pk="false"
+                    pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                    <wm-grid-column binding="endDate" caption="End Date" type="date" readonly="false" col-class="" col-ng-class="" search-placeholder="Enter date in yyyy-mm-dd" datepattern="yyyy-MM-dd" formatpattern="toDate" is-related-pk="false"
+                    pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                    <wm-grid-column binding="status" caption="Status" type="string" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" is-related-pk="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                    <wm-grid-column binding="projectId" caption="Project Id" type="integer" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" is-related-pk="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                    <wm-grid-column binding="taskTypeId" caption="Task Type Id" type="integer" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" is-related-pk="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                    <wm-grid-column binding="parentTaskId" caption="Parent Task Id" type="integer" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" is-related-pk="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                    <wm-grid-column binding="referenceTicket" caption="Reference Ticket" type="string" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" is-related-pk="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                    <wm-grid-column binding="gregUser.userId" caption="Greg User User Id" type="integer" generator="identity" is-related-pk="true" pcdisplay="true" mobiledisplay="false"></wm-grid-column>
+                    <wm-grid-column binding="gregUser.customerCode" caption="Greg User Customer Code" type="string" disable-inline-editing="true" pcdisplay="true" mobiledisplay="false"></wm-grid-column>
+                    <wm-grid-column binding="gregUser.emailAddress" caption="Greg User Email Address" type="string" disable-inline-editing="true" pcdisplay="true" mobiledisplay="false"></wm-grid-column>
+                    <wm-grid-column binding="gregUser.name" caption="Greg User Name" type="string" disable-inline-editing="true" pcdisplay="true" mobiledisplay="false"></wm-grid-column>
+                    <wm-grid-column binding="gregUser.mobilePassword" caption="Greg User Mobile Password" type="string" disable-inline-editing="true" pcdisplay="true" mobiledisplay="false"></wm-grid-column>
+                    <wm-grid-action key="addNewRow" label="New" show="true" class="btn-primary" icon="new" action="addNewRow()" type="button"></wm-grid-action>
+                </wm-grid>
+                <wm-liveform novalidate="false" title="Details" name="GregTaskLiveform2" dataset="bind:Variables.IntegraGregTaskData.dataSet" formtype="inline">
+                    <wm-layoutgrid name="layoutgrid1">
+                        <wm-gridrow name="gridrow1">
+                            <wm-gridcolumn name="gridcolumn1" columnwidth="12">
+                                <wm-form-field display-name="Task Id" show="false" primary-key="true" generator="identity" key="taskId" type="integer" is-related="false" readonly="true" required="true"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow2">
+                            <wm-gridcolumn name="gridcolumn2" columnwidth="12">
+                                <wm-form-field display-name="Name" show="true" primary-key="false" generator="null" key="name" type="string" maxvalue="30" is-related="false" readonly="false" required="true"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow3">
+                            <wm-gridcolumn name="gridcolumn3" columnwidth="12">
+                                <wm-form-field display-name="Description" show="true" primary-key="false" generator="null" key="description" type="string" maxvalue="100" is-related="false" readonly="false" required="false"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow4">
+                            <wm-gridcolumn name="gridcolumn4" columnwidth="12">
+                                <wm-form-field display-name="Start Date" show="true" primary-key="false" generator="null" key="startDate" type="date" is-related="false" readonly="false" required="true"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow5">
+                            <wm-gridcolumn name="gridcolumn5" columnwidth="12">
+                                <wm-form-field display-name="End Date" show="true" primary-key="false" generator="null" key="endDate" type="date" is-related="false" readonly="false" required="false"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow6">
+                            <wm-gridcolumn name="gridcolumn6" columnwidth="12">
+                                <wm-form-field display-name="Status" show="true" primary-key="false" generator="null" key="status" type="string" maxvalue="10" is-related="false" readonly="false" required="true"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow7">
+                            <wm-gridcolumn name="gridcolumn7" columnwidth="12">
+                                <wm-form-field display-name="Greg User" show="true" primary-key="false" generator="null" key="gregUser" type="list" is-related="true" readonly="false" required="true"></wm-form-field>
+                                <wm-composite name="composite1">
+                                    <wm-label class="col-md-3" name="label1"></wm-label>
+                                    <wm-container class="col-md-9" name="container1">
+                                        <wm-select name="select1" datafield="All Fields" displayfield="name" dataset="bind:Variables.livevar_looup_greg_user.dataSet" displayexpression="bind:$[data[$i].userId]+&quot; &quot;+$[data[$i].name]"></wm-select>
+                                    </wm-container>
+                                </wm-composite>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow8">
+                            <wm-gridcolumn name="gridcolumn8" columnwidth="12">
+                                <wm-form-field display-name="Project Id" show="true" primary-key="false" generator="null" key="projectId" type="integer" is-related="false" readonly="false" required="true"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow9">
+                            <wm-gridcolumn name="gridcolumn9" columnwidth="12">
+                                <wm-form-field display-name="Task Type Id" show="true" primary-key="false" generator="null" key="taskTypeId" type="integer" is-related="false" readonly="false" required="false"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow10">
+                            <wm-gridcolumn name="gridcolumn10" columnwidth="12">
+                                <wm-form-field display-name="Parent Task Id" show="true" primary-key="false" generator="null" key="parentTaskId" type="integer" is-related="false" readonly="false" required="false"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow11">
+                            <wm-gridcolumn name="gridcolumn11" columnwidth="12">
+                                <wm-form-field display-name="Reference Ticket" show="true" primary-key="false" generator="null" key="referenceTicket" type="string" maxvalue="30" is-related="false" readonly="false" required="false"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow12">
+                            <wm-gridcolumn name="gridcolumn12" columnwidth="12">
+                                <wm-form-field display-name="Last Update Datetime" show="true" primary-key="false" generator="null" key="lastUpdateDatetime" type="timestamp" is-related="false" readonly="false" required="true"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow13">
+                            <wm-gridcolumn name="gridcolumn13" columnwidth="12">
+                                <wm-form-field display-name="Last Update By" show="true" primary-key="false" generator="null" key="lastUpdateBy" type="integer" is-related="false" readonly="false" required="true"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                    </wm-layoutgrid>
+                    <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="glyphicon glyphicon-remove-circle" action="cancel()" display-name="Cancel" show="true" type="button" update-mode="true"></wm-form-action>
+                    <wm-form-action key="save" class="form-save btn-success" iconclass="glyphicon glyphicon-save" display-name="Save" show="true" type="Submit" update-mode="true"></wm-form-action>
+                </wm-liveform>
+            </wm-livegrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

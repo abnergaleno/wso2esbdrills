@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/waveintegra" name="api_integrawave" xmlns="http://ws.apache.org/ns/synapse">
+  <resource methods="GET" protocol="http">
+    <inSequence>
+      <send>
+        <endpoint key="gov:esbconfig/endpoints/EdcIntegraEsbRegRes/ep_wavemaker.xml"/>
+      </send>
+    </inSequence>
+    <outSequence>
+      <log description="LOGQUERYFORMATINuri" level="custom" separator="************">
+        <property expression="get-property('query.param.format')" name="___________________get-property(query.param.format"/>
+        <property expression="$body" name="___________________body"/>
+      </log>
+      <switch description="" source="get-property('query.param.format')">
+        <case regex="json">
+          <log description="tempLogger" level="custom" separator="++++++++++++++++">
+            <property name="===============" value="insideforamt=JSONswitch"/>
+          </log>
+          <property description="set response format=json"
+            name="messageType" scope="axis2" type="STRING" value="application/json"/>
+        </case>
+        <case regex="xml">
+          <log description="simpleLOg2">
+            <property name="===============" value="insideforamt=XMLswitch"/>
+          </log>
+          <property description="set response format=JSON"
+            name="messageType" scope="axis2" type="STRING" value="application/xml"/>
+          <enrich description="removeJSONObjectwrapper">
+            <source clone="true" xpath="//jsonObject"/>
+            <target xpath="//jsonObject"/>
+          </enrich>
+        </case>
+        <default>
+          <log description="simpleLog3">
+            <property name="===============" value="insideforamt=DEFAULTswitch"/>
+          </log>
+        </default>
+      </switch>
+      <send/>
+    </outSequence>
+    <faultSequence/>
+  </resource>
+</api>

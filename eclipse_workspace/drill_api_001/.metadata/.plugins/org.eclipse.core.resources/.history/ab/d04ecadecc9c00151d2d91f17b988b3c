@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/integra" name="api_resttorest" xmlns="http://ws.apache.org/ns/synapse">
+  <resource methods="GET" protocol="http">
+    <inSequence>
+      <property action="remove"
+        description="settingforwardslashatendofurl"
+        name="REST_URL_POSTFIX" scope="default"/>
+      <send>
+        <endpoint key="gov:esbconfig/endpoints/EdcIntegraEsbRegRes/ep_mocktaskapi.xml"/>
+      </send>
+    </inSequence>
+    <outSequence>
+      <property description="settingmessagetypetoxml" name="messageType"
+        scope="axis2" type="STRING" value="TEXT/JSON"/>
+      <send/>
+    </outSequence>
+    <faultSequence/>
+  </resource>
+  <resource protocol="http" uri-template="/status/{taskid}">
+    <inSequence>
+      <log description="logTaskId" level="custom" separator="-_-_-_-_-_-_-_-_">
+        <property expression="get-property('uri.var.taskid')" name="LOG_MESSAGE01['{get-p('uri.var.taskid')}']"/>
+      </log>
+      <log description="logGETsearchstr=" level="custom" separator="-_-_-_-_-_-_-_-_">
+        <property expression="get-property('query.param.searchstr')" name="LOG_MESSAGE01['{get-p('query.param.searchstr')}']"/>
+      </log>
+      <loopback description="willret"/>
+    </inSequence>
+    <outSequence>
+      <payloadFactory media-type="xml">
+        <format>
+          <inlineCheckWSOLogsForLoggedURIVARtaskid xmlns=""/>
+        </format>
+        <args/>
+      </payloadFactory>
+      <send/>
+    </outSequence>
+    <faultSequence/>
+  </resource>
+</api>

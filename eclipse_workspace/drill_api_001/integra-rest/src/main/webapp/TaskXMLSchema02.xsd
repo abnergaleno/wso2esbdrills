@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.edc.com/integra/NewXMLSchema" xmlns:tns="http://www.edc.com/integra/NewXMLSchema" elementFormDefault="qualified">
+
+    <simpleType name="taskId"><restriction base="int"></restriction></simpleType>
+	<complexType name="TaskInfo">
+		<sequence>
+			<element name="basicData" type="tns:simpleData"></element>
+			<element name="relationships" type="tns:relationship"></element>
+		</sequence>
+	</complexType>
+	<complexType name="simpleData">
+		<sequence>
+			<element name="taskId" type="string"></element>
+			<element name="Name" type="string"></element>
+			<element name="comments" type="string"></element>
+			<element name="start_date" type="date"></element>
+			<element name="end_date" type="date"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="relationship">
+		<sequence>
+			<element name="relation" type="string"></element>
+			<element name="id" type="int"></element>
+		</sequence>
+	</complexType>
+</schema>
+

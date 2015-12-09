@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="prox_esbdrill001" startOnLoad="true" trace="disable"
+  transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+  <target>
+    <inSequence>
+      <log description="justAnotherLOgINFO" level="custom" separator="&lt;|-------------|>">
+        <property name="LOG_MESSAGE[001]" value="category INFO log level CUSTOM"/>
+      </log>
+      <send/>
+    </inSequence>
+    <outSequence>
+      <property description="setmessageformattosoap11"
+        name="MESSAGE_FORMAT" scope="default" type="STRING" value="soap11"/>
+      <enrich description="towrapresponseinsoapenveoper">
+        <source clone="true" type="body"/>
+        <target type="body"/>
+      </enrich>
+      <send/>
+    </outSequence>
+    <faultSequence/>
+  </target>
+</proxy>

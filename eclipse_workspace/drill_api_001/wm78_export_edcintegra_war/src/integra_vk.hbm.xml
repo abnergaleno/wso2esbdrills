@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.edcintegra.integra">
+    <class entity-name="com.edcintegra.integra.GregTask" table="greg_task" name="com.edcintegra.integra.GregTask" schema="public">
+        <id name="taskId" type="integer">
+            <column name="task_id" length="255" not-null="true" precision="19"/>
+            <generator class="identity"/>
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="30" not-null="true" precision="19"/>
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="100" not-null="false" precision="19"/>
+        </property>
+        <property name="startDate" type="date">
+            <column name="start_date" length="13" not-null="true" precision="19"/>
+        </property>
+        <property name="endDate" type="date">
+            <column name="end_date" length="13" not-null="false" precision="19"/>
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="10" not-null="true" precision="19"/>
+        </property>
+        <property name="projectId" type="integer">
+            <column name="project_id" length="255" not-null="true" precision="19"/>
+        </property>
+        <property name="taskTypeId" type="integer">
+            <column name="task_type_id" length="255" not-null="false" precision="19"/>
+        </property>
+        <property name="parentTaskId" type="integer">
+            <column name="parent_task_id" length="255" not-null="false" precision="19"/>
+        </property>
+        <property name="referenceTicket" type="string">
+            <column name="reference_ticket" length="30" not-null="false" precision="19"/>
+        </property>
+        <property name="lastUpdateDatetime" type="timestamp">
+            <column name="last_update_datetime" length="35" not-null="true" precision="19"/>
+        </property>
+        <property name="lastUpdateBy" type="integer">
+            <column name="last_update_by" length="255" not-null="true" precision="19"/>
+        </property>
+        <many-to-one name="gregUser" class="com.edcintegra.integra.GregUser" fetch="select">
+            <column name="created_by" length="255" not-null="true" precision="19"/>
+        </many-to-one>
+    </class>
+    <class entity-name="com.edcintegra.integra.GregUser" table="greg_user" name="com.edcintegra.integra.GregUser" schema="public">
+        <id name="userId" type="integer">
+            <column name="user_id" length="255" not-null="true" precision="19"/>
+            <generator class="identity"/>
+        </id>
+        <property name="customerCode" type="string">
+            <column name="customer_code" length="10" not-null="false" precision="19"/>
+        </property>
+        <property name="emailAddress" type="string">
+            <column name="email_address" length="30" not-null="true" precision="19"/>
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="60" not-null="true" precision="19"/>
+        </property>
+        <property name="mobilePassword" type="string">
+            <column name="mobile_password" length="30" not-null="false" precision="19"/>
+        </property>
+        <set name="gregTasks" table="greg_user" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="created_by"/>
+            </key>
+            <one-to-many class="com.edcintegra.integra.GregTask"/>
+        </set>
+    </class>
+</hibernate-mapping>

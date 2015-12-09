@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/NewXMLSchema" xmlns:tns="http://www.example.org/NewXMLSchema" elementFormDefault="qualified">
+
+    <element name="taskId" type="int"></element>
+
+    <element name="attributes" type="tns:attribute"></element>
+
+    <complexType name="attribute">
+    	<sequence>
+    		<element name="name" type="string"></element>
+    		<element name="description" type="string"></element>
+    		<element name="start_date" type="date"></element>
+    		<element name="end_date" type="date"></element>
+    		<element name="status" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="relationships" type="tns:relationship"></element>
+
+    <complexType name="relationship">
+    	<sequence>
+    		<element name="created_by" type="tns:data" minOccurs="0" maxOccurs="1"></element>
+    		<element name="campaign" type="tns:data" minOccurs="0" maxOccurs="1"></element>
+    		<element name="project" type="tns:data" minOccurs="0" maxOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="data">
+    	<sequence>
+    		<element name="type" type="string" minOccurs="0" maxOccurs="1"></element>
+    		<element name="user" type="int" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="created_by"></complexType>
+</schema>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoint name="ep_mocktaskapi" xmlns="http://ws.apache.org/ns/synapse">
+  <http method="get" trace="disable" uri-template="http://localhost:8080/mock-task-api/json/tasks"/>
+</endpoint>

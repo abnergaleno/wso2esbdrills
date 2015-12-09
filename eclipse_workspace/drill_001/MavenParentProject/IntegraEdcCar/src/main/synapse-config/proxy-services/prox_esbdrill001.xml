@@ -14,7 +14,7 @@
       <property description="setmessageformattosoap11"
         name="MESSAGE_FORMAT" scope="default" type="STRING" value="soap11"/>
       <enrich description="towrapresponseinsoapenveoper">
-        <source type="body"/>
+        <source clone="true" type="body"/>
         <target type="body"/>
       </enrich>
       <send/>

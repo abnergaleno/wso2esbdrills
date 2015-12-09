@@ -1,1 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?><artifacts/>
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="ep_mocktaskapi" groupId="ph.com.energy.integra.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+        <item>
+            <file>ep_mocktaskapi.xml</file>
+            <path>/_system/governance/esbconfig/endpoints</path>
+            <mediaType>application/vnd.wso2.esb.endpoint</mediaType>
+        </item>
+    </artifact>
+    <artifact name="ep_wavemaker" groupId="ph.com.energy.integra.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+        <item>
+            <file>ep_wavemaker.xml</file>
+            <path>/_system/governance/esbconfig/endpoints/EdcIntegraEsbRegRes</path>
+            <mediaType>application/vnd.wso2.esb.endpoint</mediaType>
+        </item>
+    </artifact>
+</artifacts>

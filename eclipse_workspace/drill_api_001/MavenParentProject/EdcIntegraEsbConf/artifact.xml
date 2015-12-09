@@ -2,4 +2,10 @@
     <artifact name="api_resttorest" groupId="ph.com.energy.integra.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/api/api_resttorest.xml</file>
     </artifact>
+    <artifact name="api_integrawave" groupId="ph.com.energy.integra.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/api_integrawave.xml</file>
+    </artifact>
+    <artifact name="api_exercises" groupId="ph.com.energy.integra.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/api_exercises.xml</file>
+    </artifact>
 </artifacts>
