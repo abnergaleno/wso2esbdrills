@@ -11,4 +11,7 @@
     <artifact name="api_xmljsonconversion" groupId="ph.com.energy.integra.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/api/api_xmljsonconversion.xml</file>
     </artifact>
+    <artifact name="api_xmljsonconversion002" groupId="ph.com.energy.integra.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/api_xmljsonconversion002.xml</file>
+    </artifact>
 </artifacts>

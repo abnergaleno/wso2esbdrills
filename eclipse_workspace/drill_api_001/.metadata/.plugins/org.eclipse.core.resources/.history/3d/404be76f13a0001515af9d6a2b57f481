@@ -25,10 +25,8 @@
       </log>
       <property description="applicationXML" name="messageType"
         scope="axis2" type="STRING" value="application/xml"/>
-      <payloadFactory description="prop_payloadxml_aspayload" media-type="xml">
-        <format>
-          <response xmlns="">$1</response>
-        </format>
+      <payloadFactory description="prop_payloadxml_aspayload" media-type="json">
+        <format>&lt;response&gt;$1&lt;/response&gt;</format>
         <args>
           <arg evaluator="xml" expression="$ctx:payloadxml"/>
         </args>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/xmljson002" name="api_xmljsonconversion002" xmlns="http://ws.apache.org/ns/synapse">
+  <resource methods="GET" protocol="http">
+    <inSequence>
+      <loopback description="gotoOutSequence"/>
+    </inSequence>
+    <outSequence>
+      <property name="payloadxml" scope="default" type="STRING" value="value"/>
+      <payloadFactory media-type="xml">
+        <format>
+          <inline xmlns=""/>
+        </format>
+        <args/>
+      </payloadFactory>
+    </outSequence>
+    <faultSequence/>
+  </resource>
+</api>
