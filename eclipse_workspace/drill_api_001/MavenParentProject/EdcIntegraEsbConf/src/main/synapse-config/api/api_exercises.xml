@@ -18,7 +18,7 @@
     </inSequence>
     <outSequence>
       <enrich description="none">
-        <source xpath="//TAGTOREMOVE/*"/>
+        <source clone="true" xpath="//TAGTOREMOVE/*"/>
         <target xpath="//TAGTOREMOVE"/>
       </enrich>
       <send/>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/xmljson" name="api_xmljsonconversion" xmlns="http://ws.apache.org/ns/synapse">
+  <resource methods="GET" protocol="http">
+    <inSequence>
+      <payloadFactory description="wavemakerTaskJSON" media-type="json">
+        <format>{
+  "content": [
+    {
+      "taskId": 8,
+      "name": "Task Item Name - 8",
+      "description": "Task Item Description - 8",
+      "startDate": "2004-07-18",
+      "endDate": "2004-12-28",
+      "status": "started",
+      "projectId": 9,
+      "taskTypeId": 9,
+      "parentTaskId": null,
+      "referenceTicket": "ref ticket# ZXY353",
+      "lastUpdateDatetime": 1450108800000,
+      "lastUpdateBy": 1,
+      "gregUser": {
+        "userId": 9,
+        "customerCode": "aee",
+        "emailAddress": "dmiddleton@gmail.com",
+        "name": "Debra Middleton",
+        "mobilePassword": null
+      }
+    },
+    {
+      "taskId": 81,
+      "name": "Task Item Name - 81",
+      "description": "Task Item Description - 81",
+      "startDate": "2010-10-12",
+      "endDate": "2010-12-22",
+      "status": "WIP",
+      "projectId": 82,
+      "taskTypeId": 82,
+      "parentTaskId": null,
+      "referenceTicket": "ref ticket# ZXY426",
+      "lastUpdateDatetime": 1456416000000,
+      "lastUpdateBy": 3,
+      "gregUser": {
+        "userId": 82,
+        "customerCode": "FDS",
+        "emailAddress": "bwood@gmail.com",
+        "name": "Bradford Wood",
+        "mobilePassword": "923-458-1185"
+      }
+    }
+  ],
+  "last": false,
+  "totalElements": 100,
+  "totalPages": 5,
+  "firstPage": true,
+  "lastPage": false,
+  "size": 20,
+  "number": 0,
+  "sort": null,
+  "first": true,
+  "numberOfElements": 20
+}</format>
+        <args/>
+      </payloadFactory>
+      <payloadFactory description="simpleJSON" media-type="json">
+        <format>{ "content":[ {"taskId":101,"taskName":"SurveySite"}, {"taskId":201,"taskName":"ClearSite"}], "sort":"default","count":20}</format>
+        <args/>
+      </payloadFactory>
+      <payloadFactory description="genericPayload" media-type="xml">
+        <format>
+          <genericPayloadZZZ xmlns=""/>
+        </format>
+        <args/>
+      </payloadFactory>
+      <loopback description="gotoOUT"/>
+    </inSequence>
+    <outSequence>
+      <log description="JUSTALOG" level="custom" separator="==========">
+        <property expression="//jsonObject/*" name="INSIDEOFjsonObject"/>
+      </log>
+      <property description="applicationXML" name="messageType"
+        scope="axis2" type="STRING" value="application/xml"/>
+      <property description="payload" name="payloadxml" scope="default"
+        type="STRING" value="&lt;responseXCX/>"/>
+      <enrich description="setRoot">
+        <source type="inline">
+          <responseChildElementAAA xmlns=""/>
+        </source>
+        <target action="child" property="payloadxml" type="property"/>
+      </enrich>
+      <payloadFactory description="prop_payloadxml_aspayload" media-type="json">
+        <format>$1</format>
+        <args>
+          <arg evaluator="xml" expression="$ctx:payloadxml"/>
+        </args>
+      </payloadFactory>
+      <send/>
+    </outSequence>
+    <faultSequence/>
+  </resource>
+</api>

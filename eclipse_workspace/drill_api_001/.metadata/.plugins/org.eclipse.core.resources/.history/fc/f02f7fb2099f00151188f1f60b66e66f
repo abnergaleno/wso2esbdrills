@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/waveintegra" name="api_integrawave" xmlns="http://ws.apache.org/ns/synapse">
+  <resource methods="GET" protocol="http">
+    <inSequence>
+      <log description="logqueryparamformat" level="custom" separator="==========">
+        <property expression="get-property('query.param.format')" name="LOGMESSAGE[urlqueryparamformat]"/>
+      </log>
+      <send>
+        <endpoint key="gov:esbconfig/endpoints/EdcIntegraEsbRegRes/ep_wavemaker.xml"/>
+      </send>
+    </inSequence>
+    <outSequence>
+      <log description="gotPayloadSendingOut" level="custom" separator="=======">
+        <property name="LOGMESSAGE['out-sequence']" value="OUTSEQ_START"/>
+        <property expression="$body" name="LOGMESSAGE['body']"/>
+      </log>
+      <switch source="get-property('query.param.format')">
+        <case regex="xml">
+          <log description="logXML" level="custom" separator="============">
+            <property name="______LOGMESSAGE[out-switch]" value="queryparamformat==XML"/>
+          </log>
+          <property description="setresponseasXML" name="messageType"
+            scope="axis2" type="STRING" value="application/xml"/>
+          <enrich description="removejsonobjectcontainer">
+            <source xpath="//jsonObject/node()"/>
+            <target xpath="//jsonObject"/>
+          </enrich>
+        </case>
+        <case regex="json">
+          <log description="logJSON" level="custom" separator="============">
+            <property name="______LOGMESSAGE[out-switch]" value="queryparamformat==JSON"/>
+          </log>
+          <property description="setresponseasJSON" name="messageType"
+            scope="axis2" type="STRING" value="application/json"/>
+        </case>
+        <default>
+          <log description="logDefault" level="custom" separator="============">
+            <property name="______LOGMESSAGE[out-switch]" value="queryparamformat!=XML||JSON"/>
+          </log>
+        </default>
+      </switch>
+      <send/>
+    </outSequence>
+    <faultSequence/>
+  </resource>
+</api>

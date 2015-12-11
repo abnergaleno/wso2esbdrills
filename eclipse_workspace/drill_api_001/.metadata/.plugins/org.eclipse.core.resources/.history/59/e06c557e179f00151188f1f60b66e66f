@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/xmljson" name="api_xmljsonconversion" xmlns="http://ws.apache.org/ns/synapse">
+  <resource methods="GET" protocol="http">
+    <inSequence>
+      <payloadFactory description="simpleJSON" media-type="json">
+        <format>{ "content":[ {"taskId":101,"taskName":"SurveySite"}, {"taskId":201,"taskName":"ClearSite"}], "sort":"default","count":20}</format>
+        <args/>
+      </payloadFactory>
+      <payloadFactory description="wavemakerTaskJSON" media-type="json">
+        <format>{"CONTANT":"lalalal"}</format>
+        <args/>
+      </payloadFactory>
+      <loopback description="gotoOUT"/>
+    </inSequence>
+    <outSequence>
+      <log description="JUSTALOG" level="custom" separator="==========">
+        <property expression="//jsonObject/*" name="INSIDEOFjsonObject"/>
+      </log>
+      <property description="applicationXML" name="messageType"
+        scope="axis2" type="STRING" value="application/xml"/>
+      <send/>
+    </outSequence>
+    <faultSequence/>
+  </resource>
+</api>

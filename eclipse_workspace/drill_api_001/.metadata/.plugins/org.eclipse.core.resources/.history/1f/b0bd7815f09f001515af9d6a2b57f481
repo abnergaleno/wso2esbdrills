@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/xmljson" name="api_xmljsonconversion" xmlns="http://ws.apache.org/ns/synapse">
+  <resource methods="GET" protocol="http">
+    <inSequence>
+      <loopback description="gotoOUT"/>
+    </inSequence>
+    <outSequence>
+      <log description="JUSTALOG" level="custom" separator="==========">
+        <property expression="//jsonObject/*" name="INSIDEOFjsonObject"/>
+      </log>
+      <property description="payloadxml" name="payloadxml"
+        scope="default" type="STRING" value="&lt;responseXCX>xyz&lt;/responseXCX>"/>
+      <log description="JUSTALOG_001" level="custom" separator="==========">
+        <property name="INSIDEOFjsonObject" value="************001"/>
+      </log>
+      <enrich description="addChildToPayload">
+        <source clone="true" type="inline">
+          <elementone xmlns="">tyu</elementone>
+        </source>
+        <target action="child" property="payloadxml" type="property"/>
+      </enrich>
+      <log description="JUSTALOG_002" level="custom" separator="==========">
+        <property name="INSIDEOFjsonObject" value="************002"/>
+      </log>
+      <property description="applicationXML" name="messageType"
+        scope="axis2" type="STRING" value="application/xml"/>
+      <log description="JUSTALOG_003" level="custom" separator="==========">
+        <property name="INSIDEOFjsonObject" value="************003"/>
+      </log>
+      <log description="logthepayloadXML" level="custom" separator="==========">
+        <property expression="$ctx:payloadxml" name="LOGMESSAGE['payloadxml']"/>
+      </log>
+      <log description="JUSTALOG_004" level="custom" separator="==========">
+        <property name="INSIDEOFjsonObject" value="************004"/>
+      </log>
+      <payloadFactory description="prop_payloadxml_aspayload" media-type="json">
+        <format>$1</format>
+        <args>
+          <arg evaluator="xml" expression="$ctx:payloadxml"/>
+        </args>
+      </payloadFactory>
+      <log description="JUSTALOG_004" level="custom" separator="==========">
+        <property name="INSIDEOFjsonObject" value="************004"/>
+      </log>
+      <send/>
+    </outSequence>
+    <faultSequence/>
+  </resource>
+</api>

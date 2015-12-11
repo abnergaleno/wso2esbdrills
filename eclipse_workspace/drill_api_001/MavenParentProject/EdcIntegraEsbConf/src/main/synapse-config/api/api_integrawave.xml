@@ -10,23 +10,28 @@
       </send>
     </inSequence>
     <outSequence>
+      <log description="gotPayloadSendingOut" level="custom" separator="=======">
+        <property name="LOGMESSAGE['out-sequence']" value="OUTSEQ_START"/>
+        <property expression="$body" name="LOGMESSAGE['body']"/>
+        <property expression="//jsonObject/node()" name="________________________________LOGMESSAGE['xpathresults']"/>
+      </log>
       <switch source="get-property('query.param.format')">
         <case regex="xml">
-          <log description="logJSON" level="custom" separator="============">
+          <log description="logXML" level="custom" separator="============">
             <property name="______LOGMESSAGE[out-switch]" value="queryparamformat==XML"/>
           </log>
-          <property description="setresponseasJSON" name="messageType"
+          <property description="setresponseasXML" name="messageType"
             scope="axis2" type="STRING" value="application/xml"/>
           <enrich description="removejsonobjectcontainer">
-            <source clone="true" xpath="//jsonObject/text()"/>
+            <source clone="true" xpath="//jsonObject/*"/>
             <target xpath="//jsonObject"/>
           </enrich>
         </case>
         <case regex="json">
-          <log description="logXML" level="custom" separator="============">
+          <log description="logJSON" level="custom" separator="============">
             <property name="______LOGMESSAGE[out-switch]" value="queryparamformat==JSON"/>
           </log>
-          <property description="setresponseasXML" name="messageType"
+          <property description="setresponseasJSON" name="messageType"
             scope="axis2" type="STRING" value="application/json"/>
         </case>
         <default>
@@ -35,6 +40,20 @@
           </log>
         </default>
       </switch>
+      <send/>
+    </outSequence>
+    <faultSequence/>
+  </resource>
+  <resource protocol="http" uri-template="/services/integra/GregTask/{taskId}">
+    <inSequence>
+      <log description="logGregTask{TaskId}" level="custom" separator="===========">
+        <property name="LOG[api_integrawave]" value="URI-TEMPLATE .../GregTask/{TaskId}"/>
+      </log>
+      <send>
+        <endpoint key="gov:esbconfig/endpoints/EdcIntegraEsbRegRes/ep_wavemaker.xml"/>
+      </send>
+    </inSequence>
+    <outSequence>
       <send/>
     </outSequence>
     <faultSequence/>
